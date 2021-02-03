@@ -29,12 +29,22 @@
       height: 100%;
       overflow: hidden;
     }
+    
+    #btn {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+    }
   </style>
 </head>
 
 <body>
   <div id="d3map"></div>
+  <div id="btn">
+    <button onclick="remove()">删除</button>
+  </div>
   <script>
+    Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlYTQ2ZjdjNS1jM2E0LTQ1M2EtOWM0My1mODMzNzY3YjYzY2YiLCJpZCI6MjkzMjcsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1OTE5NDIzNjB9.RzKlVTVDTQ9r7cqCo-PDydgUh8Frgw0Erul_BVxiS9c';
     // init viewer
     let viewer = new Cesium.Viewer('d3map')
     // create radar
@@ -59,6 +69,8 @@
       })
     })
     viewer.flyTo(sensorEntity)
+
+    const remove = () => viewer.entities.remove(sensorEntity)
   </script>
 </body>
 

@@ -427,7 +427,8 @@ function RectangularSensorPrimitive(options) {
         }
     };
 }
-
+RectangularSensorPrimitive.prototype.isDestroyed = function(){ return false}
+RectangularSensorPrimitive.prototype.destroy = function(){ }
 RectangularSensorPrimitive.prototype.update = function (frameState) {
     var mode = frameState.mode;
     if (!this.show || mode !== SceneMode.SCENE3D) {
